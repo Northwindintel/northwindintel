@@ -4,12 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Northwind Capital Intelligence</title>
-  <meta name="description" content="Northwind Capital Intelligence is a Web3 capital intelligence firm focused on early stage opportunities across decentralized finance and base layer protocols.">
+  <meta
+    name="description"
+    content="Northwind Capital Intelligence is a Web3 capital intelligence firm focused on early stage opportunities across decentralized finance and base layer protocols."
+  >
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -24,6 +31,11 @@
       text-decoration: none;
     }
 
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
     .wrap {
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
@@ -32,10 +44,10 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      background: rgba(7, 16, 24, 0.9);
+      z-index: 30;
+      background: rgba(7, 16, 24, 0.88);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     .topbarInner {
@@ -52,18 +64,20 @@
       display: flex;
       align-items: center;
       gap: 14px;
+      min-width: 0;
     }
 
     .brand img {
       height: 38px;
       width: auto;
-      display: block;
+      flex-shrink: 0;
     }
 
     .brandText strong {
       display: block;
       font-size: 15px;
       letter-spacing: 0.02em;
+      color: #f3f8fc;
     }
 
     .brandText span {
@@ -75,9 +89,14 @@
     .nav {
       display: flex;
       align-items: center;
-      gap: 18px;
+      gap: 28px;
       color: #b6c5cf;
       font-size: 14px;
+      flex-shrink: 0;
+    }
+
+    .nav a {
+      transition: color 0.2s ease, opacity 0.2s ease;
     }
 
     .nav a:hover {
@@ -88,35 +107,21 @@
       position: relative;
       min-height: 92vh;
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       overflow: hidden;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      isolation: isolate;
     }
 
     .heroBg {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(7,16,24,0.92) 0%, rgba(7,16,24,0.55) 45%, rgba(7,16,24,0.2) 100%),
+        linear-gradient(to right, rgba(7, 16, 24, 0.82) 0%, rgba(7, 16, 24, 0.62) 36%, rgba(7, 16, 24, 0.26) 68%, rgba(7, 16, 24, 0.40) 100%),
+        linear-gradient(to top, rgba(7, 16, 24, 0.82) 0%, rgba(7, 16, 24, 0.18) 56%, rgba(7, 16, 24, 0.08) 100%),
         url("header2.png") center center / cover no-repeat;
       transform: scale(1.02);
-    }
-
-    .heroLogo {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      pointer-events: none;
-      opacity: 0.18;
-    }
-
-    .heroLogo img {
-      width: min(900px, 72vw);
-      max-width: 900px;
-      height: auto;
-      filter: drop-shadow(0 20px 60px rgba(53, 184, 234, 0.25));
+      z-index: 0;
     }
 
     .heroInner {
@@ -124,71 +129,84 @@
       z-index: 2;
       width: min(1180px, calc(100% - 40px));
       margin: 0 auto;
-      padding: 110px 0 70px;
+      padding: 72px 0 56px;
+    }
+
+    .heroContent {
+      max-width: 760px;
     }
 
     .eyebrow {
-      display: inline-block;
-      margin-bottom: 20px;
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 22px;
       padding: 8px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(83, 204, 255, 0.25);
+      border: 1px solid rgba(83, 204, 255, 0.22);
       background: rgba(83, 204, 255, 0.08);
       color: #bceeff;
       font-size: 13px;
+      backdrop-filter: blur(8px);
     }
 
     h1 {
-      font-size: clamp(42px, 7vw, 78px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      max-width: 900px;
-      margin-bottom: 22px;
+      font-size: clamp(36px, 5.6vw, 68px);
+      line-height: 0.94;
+      letter-spacing: -0.05em;
+      max-width: 720px;
+      margin-bottom: 20px;
+      color: #f4f8fb;
+      text-wrap: balance;
     }
 
     .heroText {
-      max-width: 760px;
+      max-width: 700px;
       color: #c2d1da;
-      font-size: 20px;
-      margin-bottom: 30px;
+      font-size: 18px;
+      line-height: 1.52;
+      margin-bottom: 28px;
+      text-shadow: 0 2px 18px rgba(0, 0, 0, 0.18);
     }
 
     .heroActions {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      min-height: 50px;
       padding: 14px 20px;
       border-radius: 999px;
       font-weight: 700;
-      transition: 0.2s ease;
+      font-size: 15px;
+      transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease, border-color 0.2s ease;
     }
 
     .btnPrimary {
       background: linear-gradient(135deg, rgba(60, 196, 246, 1), rgba(7, 113, 152, 1));
-      color: white;
+      color: #ffffff;
       box-shadow: 0 12px 30px rgba(7, 113, 152, 0.35);
     }
 
     .btnPrimary:hover {
       transform: translateY(-1px);
-      opacity: 0.95;
+      opacity: 0.96;
     }
 
     .btnGhost {
-      border: 1px solid rgba(255,255,255,0.14);
-      background: rgba(255,255,255,0.04);
-      color: white;
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: rgba(255, 255, 255, 0.04);
+      color: #ffffff;
     }
 
     .btnGhost:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.09);
+      border-color: rgba(255, 255, 255, 0.2);
     }
 
     .socialRow {
@@ -203,14 +221,16 @@
       gap: 8px;
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       color: #dcecf4;
       font-size: 14px;
+      transition: background 0.2s ease, border-color 0.2s ease;
     }
 
     .socialPill:hover {
-      background: rgba(255,255,255,0.11);
+      background: rgba(255, 255, 255, 0.11);
+      border-color: rgba(255, 255, 255, 0.14);
     }
 
     section {
@@ -220,7 +240,7 @@
     .sectionHead {
       display: flex;
       justify-content: space-between;
-      align-items: end;
+      align-items: flex-end;
       gap: 24px;
       margin-bottom: 28px;
     }
@@ -228,6 +248,7 @@
     .sectionHead h2 {
       font-size: clamp(28px, 4vw, 42px);
       letter-spacing: -0.03em;
+      color: #eff8fd;
     }
 
     .sectionHead p {
@@ -242,11 +263,11 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 22px;
       padding: 28px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.22);
     }
 
     .card h3 {
@@ -269,8 +290,8 @@
     .pill {
       padding: 10px 14px;
       border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.08);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
       color: #d6eaf4;
       font-size: 14px;
     }
@@ -296,7 +317,7 @@
 
     .footer {
       padding: 26px 0 48px;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       color: #7f95a3;
       font-size: 14px;
     }
@@ -318,8 +339,22 @@
         display: none;
       }
 
+      .hero {
+        min-height: 84vh;
+      }
+
       .heroInner {
-        padding-top: 90px;
+        padding: 56px 0 44px;
+      }
+
+      h1 {
+        font-size: clamp(34px, 8vw, 54px);
+        max-width: 100%;
+      }
+
+      .heroText {
+        font-size: 17px;
+        max-width: 100%;
       }
     }
 
@@ -330,12 +365,51 @@
         width: min(1180px, calc(100% - 24px));
       }
 
+      .brandText strong {
+        font-size: 14px;
+      }
+
+      .brandText span {
+        font-size: 11px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .heroInner {
+        padding: 48px 0 36px;
+      }
+
+      .eyebrow {
+        margin-bottom: 18px;
+      }
+
+      h1 {
+        font-size: clamp(32px, 11vw, 46px);
+        line-height: 0.96;
+        margin-bottom: 18px;
+      }
+
       .heroText {
-        font-size: 18px;
+        font-size: 16px;
+        margin-bottom: 24px;
+      }
+
+      .heroActions {
+        gap: 12px;
+      }
+
+      .btn {
+        width: 100%;
       }
 
       .mailLink {
         font-size: 24px;
+      }
+
+      section {
+        padding: 68px 0;
       }
     }
   </style>
@@ -362,25 +436,28 @@
   <main>
     <section class="hero">
       <div class="heroBg"></div>
-      <div class="heroLogo">
-        <img src="logo.png" alt="Northwind logo">
-      </div>
 
       <div class="heroInner">
-        <div class="eyebrow">Early Stage Web3 Intelligence</div>
-        <h1>Capital intelligence across decentralized finance and base layer protocols.</h1>
-        <p class="heroText">
-          Northwind Capital Intelligence identifies emerging opportunities through onchain data, deep tokenomics research, validator economics, and protocol architecture analysis.
-        </p>
+        <div class="heroContent">
+          <div class="eyebrow">Early Stage Web3 Intelligence</div>
 
-        <div class="heroActions">
-          <a class="btn btnPrimary" href="mailto:alpha@northwindintel.com">Contact</a>
-          <a class="btn btnGhost" href="#research">View research areas</a>
-        </div>
+          <h1>
+            Capital intelligence across decentralized finance and base layer protocols.
+          </h1>
 
-        <div class="socialRow">
-          <a class="socialPill" href="https://x.com/northwind_eth" target="_blank" rel="noopener noreferrer">X</a>
-          <a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <p class="heroText">
+            Northwind Capital Intelligence identifies emerging opportunities through onchain data, deep tokenomics research, validator economics, and protocol architecture analysis.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn btnPrimary" href="mailto:alpha@northwindintel.com">Contact</a>
+            <a class="btn btnGhost" href="#research">View research areas</a>
+          </div>
+
+          <div class="socialRow">
+            <a class="socialPill" href="https://x.com/northwind_eth" target="_blank" rel="noopener noreferrer">X</a>
+            <a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/?viewAsMember=true" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
         </div>
       </div>
     </section>
@@ -450,8 +527,8 @@
     <section id="contact">
       <div class="wrap contactBox">
         <div class="card">
-          <h2 style="margin-bottom:14px;">Contact</h2>
-          <p class="smallText" style="margin-bottom:18px;">
+          <h2 style="margin-bottom: 14px;">Contact</h2>
+          <p class="smallText" style="margin-bottom: 18px;">
             For research inquiries, partnerships, or strategic conversations, reach out directly.
           </p>
           <a class="mailLink" href="mailto:alpha@northwindintel.com">alpha@northwindintel.com</a>
@@ -459,7 +536,7 @@
 
         <div class="card">
           <h3>Socials</h3>
-          <p class="smallText" style="margin-bottom:18px;">
+          <p class="smallText" style="margin-bottom: 18px;">
             Follow Northwind Capital Intelligence across major platforms.
           </p>
           <div class="socialRow">
