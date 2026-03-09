@@ -1,600 +1,601 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Northwind Capital Intelligence</title>
-
-<meta name="description" content="Web3 capital intelligence and tokenomics advisory focused on decentralized finance and base layer protocols.">
-
-<style>
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
-body{
-font-family:Arial,Helvetica,sans-serif;
-background:#071018;
-color:#f2f7fb;
-line-height:1.6;
-}
-
-a{
-text-decoration:none;
-color:inherit;
-}
-
-img{
-display:block;
-max-width:100%;
-}
-
-.wrap{
-width:min(1180px,calc(100% - 40px));
-margin:auto;
-}
-
-/* NAVBAR */
-
-.topbar{
-position:sticky;
-top:0;
-z-index:30;
-background:rgba(7,16,24,0.9);
-backdrop-filter:blur(10px);
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.topbarInner{
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:18px 0;
-}
-
-.brand{
-display:flex;
-align-items:center;
-gap:12px;
-}
-
-.brand img{
-height:34px;
-}
-
-.brandText strong{
-font-size:15px;
-}
-
-.brandText span{
-display:block;
-font-size:12px;
-color:#9fb2bf;
-}
-
-.nav{
-display:flex;
-gap:28px;
-font-size:14px;
-color:#b6c5cf;
-}
-
-.nav a:hover{
-color:white;
-}
-
-/* HERO */
-
-.hero{
-position:relative;
-min-height:85vh;
-display:flex;
-align-items:center;
-overflow:hidden;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.heroBg{
-position:absolute;
-inset:0;
-
-background:
-
-linear-gradient(
-to right,
-rgba(7,16,24,0.94) 0%,
-rgba(7,16,24,0.82) 25%,
-rgba(7,16,24,0.5) 50%,
-rgba(7,16,24,0.22) 75%,
-rgba(7,16,24,0.35) 100%
-),
-
-linear-gradient(
-to top,
-rgba(7,16,24,0.9) 0%,
-rgba(7,16,24,0.2) 60%,
-rgba(7,16,24,0.05) 100%
-),
-
-url("header2.png") center / cover no-repeat;
-}
-
-.heroInner{
-position:relative;
-z-index:2;
-padding:90px 0;
-}
-
-.heroContent{
-max-width:640px;
-}
-
-.eyebrow{
-display:inline-block;
-margin-bottom:18px;
-padding:7px 14px;
-border-radius:999px;
-border:1px solid rgba(83,204,255,0.25);
-background:rgba(83,204,255,0.08);
-font-size:12px;
-color:#bceeff;
-}
-
-h1{
-font-size:clamp(32px,4vw,48px);
-line-height:1.05;
-letter-spacing:-0.03em;
-margin-bottom:14px;
-}
-
-.heroText{
-font-size:18px;
-color:#c2d1da;
-margin-bottom:28px;
-}
-
-/* BUTTONS */
-
-.heroActions{
-display:flex;
-gap:14px;
-flex-wrap:wrap;
-margin-bottom:18px;
-}
-
-.btn{
-padding:13px 20px;
-border-radius:999px;
-font-weight:700;
-font-size:14px;
-display:inline-flex;
-align-items:center;
-justify-content:center;
-transition:0.2s;
-}
-
-.btnPrimary{
-background:linear-gradient(135deg,#3cc4f6,#077198);
-color:white;
-box-shadow:0 10px 25px rgba(7,113,152,0.35);
-}
-
-.btnPrimary:hover{
-transform:translateY(-1px);
-}
-
-.btnGhost{
-border:1px solid rgba(255,255,255,0.15);
-background:rgba(255,255,255,0.04);
-}
-
-.btnGhost:hover{
-background:rgba(255,255,255,0.08);
-}
-
-/* SOCIAL */
-
-.socialRow{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.socialPill{
-padding:9px 14px;
-border-radius:999px;
-background:rgba(255,255,255,0.05);
-border:1px solid rgba(255,255,255,0.08);
-font-size:14px;
-}
-
-.socialPill:hover{
-background:rgba(255,255,255,0.1);
-}
-
-/* SECTIONS */
-
-section{
-padding:80px 0;
-}
-
-.sectionHead{
-display:flex;
-justify-content:space-between;
-align-items:end;
-gap:20px;
-margin-bottom:30px;
-}
-
-.sectionHead h2{
-font-size:36px;
-}
-
-.sectionHead p{
-max-width:520px;
-color:#9fb2bf;
-}
-
-.grid3{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-}
-
-.card{
-background:rgba(255,255,255,0.04);
-border:1px solid rgba(255,255,255,0.08);
-border-radius:20px;
-padding:26px;
-}
-
-.card h3{
-margin-bottom:10px;
-font-size:20px;
-}
-
-.card p{
-font-size:15px;
-color:#9fb2bf;
-}
-
-.pillWrap{
-display:flex;
-flex-wrap:wrap;
-gap:12px;
-}
-
-.pill{
-padding:9px 14px;
-border-radius:999px;
-border:1px solid rgba(255,255,255,0.08);
-background:rgba(255,255,255,0.03);
-font-size:14px;
-}
-
-.contactBox{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.mailLink{
-font-size:28px;
-font-weight:700;
-}
-
-/* FOOTER */
-
-.footer{
-padding:30px 0 50px;
-border-top:1px solid rgba(255,255,255,0.08);
-font-size:14px;
-color:#7f95a3;
-}
-
-.footerInner{
-display:flex;
-justify-content:space-between;
-flex-wrap:wrap;
-}
-
-/* TABLET */
-
-@media(max-width:980px){
-
-.nav{
-display:none;
-}
-
-.grid3,
-.contactBox{
-grid-template-columns:1fr;
-}
-
-.heroContent{
-max-width:100%;
-}
-
-}
-
-/* PHONE */
-
-@media(max-width:640px){
-
-.wrap{
-width:calc(100% - 24px);
-}
-
-.hero{
-min-height:auto;
-}
-
-.heroBg{
-background:
-
-linear-gradient(
-to top,
-rgba(7,16,24,0.96) 0%,
-rgba(7,16,24,0.82) 40%,
-rgba(7,16,24,0.5) 70%,
-rgba(7,16,24,0.2) 100%
-),
-
-linear-gradient(
-to right,
-rgba(7,16,24,0.9) 0%,
-rgba(7,16,24,0.6) 60%,
-rgba(7,16,24,0.3) 100%
-),
-
-url("header2.png") 60% center / cover no-repeat;
-}
-
-.heroInner{
-padding:50px 0;
-}
-
-h1{
-font-size:30px;
-}
-
-.heroText{
-font-size:16px;
-}
-
-.heroActions{
-flex-direction:column;
-}
-
-.btn{
-width:100%;
-}
-
-.sectionHead{
-display:block;
-}
-
-.sectionHead h2{
-margin-bottom:10px;
-}
-
-}
-
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northwind Capital Intelligence</title>
+  <meta
+    name="description"
+    content="Web3 capital intelligence and tokenomics advisory focused on decentralized finance and base layer protocols."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #071018;
+      color: #f2f7fb;
+      line-height: 1.55;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .wrap {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(7, 16, 24, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .topbarInner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 18px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand img {
+      height: 34px;
+      width: auto;
+      flex-shrink: 0;
+    }
+
+    .brandText strong {
+      display: block;
+      font-size: 15px;
+      line-height: 1.2;
+      color: #f4f8fb;
+    }
+
+    .brandText span {
+      display: block;
+      font-size: 12px;
+      color: #9fb2bf;
+      line-height: 1.2;
+      margin-top: 3px;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 14px;
+      color: #b6c5cf;
+      flex-shrink: 0;
+    }
+
+    .nav a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .heroBg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, rgba(7,16,24,0.90) 0%, rgba(7,16,24,0.76) 32%, rgba(7,16,24,0.38) 62%, rgba(7,16,24,0.26) 100%),
+        linear-gradient(to top, rgba(7,16,24,0.88) 0%, rgba(7,16,24,0.20) 56%, rgba(7,16,24,0.08) 100%),
+        url("header2.png") center center / cover no-repeat;
+      transform: scale(1.02);
+    }
+
+    .heroInner {
+      position: relative;
+      z-index: 2;
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 78px 0 64px;
+    }
+
+    .heroContent {
+      max-width: 620px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(83, 204, 255, 0.22);
+      background: rgba(83, 204, 255, 0.08);
+      color: #bceeff;
+      font-size: 12px;
+      margin-bottom: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    h1 {
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      margin-bottom: 16px;
+      max-width: 620px;
+      color: #f5f8fb;
+    }
+
+    .heroText {
+      font-size: 18px;
+      color: #c7d5de;
+      max-width: 600px;
+      margin-bottom: 26px;
+    }
+
+    .heroActions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+      transition: 0.2s ease;
+    }
+
+    .btnPrimary {
+      background: linear-gradient(135deg, #3cc4f6, #077198);
+      color: #fff;
+      box-shadow: 0 10px 24px rgba(7,113,152,0.35);
+    }
+
+    .btnPrimary:hover {
+      transform: translateY(-1px);
+    }
+
+    .btnGhost {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+    }
+
+    .btnGhost:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .socialRow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .socialPill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 13px;
+      color: #dcecf4;
+    }
+
+    .socialPill:hover {
+      background: rgba(255,255,255,0.10);
+    }
+
+    section {
+      padding: 80px 0;
+    }
+
+    .sectionHead {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+      margin-bottom: 28px;
+    }
+
+    .sectionHead h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      letter-spacing: -0.03em;
+    }
+
+    .sectionHead p {
+      max-width: 560px;
+      color: #9fb2bf;
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 20px;
+      padding: 26px;
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 10px;
+      color: #eff8fd;
+    }
+
+    .card p {
+      color: #9fb2bf;
+      font-size: 15px;
+    }
+
+    .pillWrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .pill {
+      padding: 9px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.03);
+      color: #d6eaf4;
+      font-size: 14px;
+    }
+
+    .contactBox {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .mailLink {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      word-break: break-word;
+    }
+
+    .smallText {
+      color: #9fb2bf;
+      font-size: 15px;
+    }
+
+    .footer {
+      padding: 28px 0 46px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #7f95a3;
+      font-size: 14px;
+    }
+
+    .footerInner {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 980px) {
+      .nav {
+        display: none;
+      }
+
+      .grid3,
+      .contactBox {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .heroInner {
+        padding: 62px 0 46px;
+      }
+
+      .heroContent {
+        max-width: 100%;
+      }
+
+      h1 {
+        max-width: 100%;
+      }
+
+      .heroText {
+        max-width: 100%;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .wrap,
+      .heroInner {
+        width: calc(100% - 24px);
+      }
+
+      .topbarInner {
+        padding: 14px 0;
+      }
+
+      .brand {
+        gap: 10px;
+      }
+
+      .brand img {
+        height: 26px;
+      }
+
+      .brandText strong {
+        font-size: 12px;
+      }
+
+      .brandText span {
+        font-size: 10px;
+        margin-top: 2px;
+      }
+
+      .hero {
+        min-height: auto;
+        align-items: flex-end;
+      }
+
+      .heroBg {
+        background:
+          linear-gradient(to top, rgba(7,16,24,0.96) 0%, rgba(7,16,24,0.86) 34%, rgba(7,16,24,0.52) 64%, rgba(7,16,24,0.22) 100%),
+          linear-gradient(to right, rgba(7,16,24,0.88) 0%, rgba(7,16,24,0.62) 56%, rgba(7,16,24,0.30) 100%),
+          url("header2.png") 64% center / cover no-repeat;
+      }
+
+      .heroInner {
+        padding: 42px 0 34px;
+      }
+
+      .heroContent {
+        max-width: 100%;
+      }
+
+      .eyebrow {
+        font-size: 11px;
+        padding: 7px 12px;
+        margin-bottom: 16px;
+      }
+
+      h1 {
+        font-size: 25px;
+        line-height: 1.02;
+        letter-spacing: -0.04em;
+        margin-bottom: 12px;
+        max-width: 92%;
+      }
+
+      .heroText {
+        font-size: 15px;
+        line-height: 1.45;
+        margin-bottom: 20px;
+        max-width: 92%;
+      }
+
+      .heroActions {
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 14px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 44px;
+        font-size: 14px;
+        padding: 12px 16px;
+      }
+
+      .socialRow {
+        gap: 8px;
+      }
+
+      .socialPill {
+        min-height: 36px;
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      section {
+        padding: 64px 0;
+      }
+
+      .sectionHead {
+        display: block;
+        margin-bottom: 22px;
+      }
+
+      .sectionHead h2 {
+        margin-bottom: 10px;
+        font-size: 30px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .mailLink {
+        font-size: 22px;
+      }
+
+      .footerInner {
+        flex-direction: column;
+        gap: 6px;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<header class="topbar">
-
-<div class="wrap topbarInner">
-
-<a href="#" class="brand">
-
-<img src="logo.png">
-
-<div class="brandText">
-<strong>Northwind Capital Intelligence</strong>
-<span>Web3 Capital Intelligence</span>
-</div>
-
-</a>
-
-<nav class="nav">
-<a href="#focus">Focus</a>
-<a href="#research">Research</a>
-<a href="#contact">Contact</a>
-</nav>
-
-</div>
-
-</header>
-
-<main>
-
-<section class="hero">
-
-<div class="heroBg"></div>
-
-<div class="wrap heroInner">
-
-<div class="heroContent">
-
-<div class="eyebrow">Early Stage Web3 Intelligence</div>
-
-<h1>
-Web3 Capital Intelligence & Tokenomics Advisory
-</h1>
-
-<p class="heroText">
-Providing capital intelligence across decentralized finance and base layer protocols.
-</p>
-
-<div class="heroActions">
-
-<a class="btn btnPrimary" href="mailto:alpha@northwindintel.com">
-Contact
-</a>
-
-<a class="btn btnGhost" href="#research">
-View research areas
-</a>
-
-</div>
-
-<div class="socialRow">
-
-<a class="socialPill" href="https://x.com/northwind_eth">
-X
-</a>
-
-<a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/">
-LinkedIn
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="focus">
-
-<div class="wrap">
-
-<div class="sectionHead">
-
-<h2>Focus</h2>
-
-<p>
-A research process built around where capital, incentives and network design converge to create asymmetric opportunity.
-</p>
-
-</div>
-
-<div class="grid3">
-
-<div class="card">
-<h3>Tokenomics</h3>
-<p>Supply structure, emissions, unlock schedules and incentive alignment across digital asset networks.</p>
-</div>
-
-<div class="card">
-<h3>Onchain Intelligence</h3>
-<p>Wallet behavior, liquidity migration, participation trends and capital flows across ecosystems.</p>
-</div>
-
-<div class="card">
-<h3>Protocol Architecture</h3>
-<p>Validator incentives, governance structure and long term network durability.</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="research">
-
-<div class="wrap">
-
-<div class="sectionHead">
-
-<h2>Research Areas</h2>
-
-<p>
-Coverage across the parts of Web3 that matter most for serious research and capital allocation.
-</p>
-
-</div>
-
-<div class="card">
-
-<div class="pillWrap">
-
-<div class="pill">Base layer protocols</div>
-<div class="pill">Decentralized finance</div>
-<div class="pill">Validator economics</div>
-<div class="pill">Staking systems</div>
-<div class="pill">Protocol design</div>
-<div class="pill">Capital flows</div>
-<div class="pill">Network incentives</div>
-<div class="pill">Early stage intelligence</div>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<section id="contact">
-
-<div class="wrap contactBox">
-
-<div class="card">
-
-<h2 style="margin-bottom:12px;">Contact</h2>
-
-<p style="margin-bottom:16px;color:#9fb2bf;">
-For research inquiries or partnerships reach out directly.
-</p>
-
-<a class="mailLink" href="mailto:alpha@northwindintel.com">
-alpha@northwindintel.com
-</a>
-
-</div>
-
-<div class="card">
-
-<h3>Socials</h3>
-
-<p style="margin-bottom:16px;color:#9fb2bf;">
-Follow Northwind Capital Intelligence.
-</p>
-
-<div class="socialRow">
-
-<a class="socialPill" href="https://x.com/northwind_eth">
-Follow on X
-</a>
-
-<a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/">
-View LinkedIn
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-</main>
-
-<footer class="footer">
-
-<div class="wrap footerInner">
-
-<span>© 2026 Northwind Capital Intelligence</span>
-
-<span>northwindintel.com</span>
-
-</div>
-
-</footer>
+  <header class="topbar">
+    <div class="wrap topbarInner">
+      <a href="#" class="brand">
+        <img src="logo.png" alt="Northwind Capital Intelligence logo">
+        <div class="brandText">
+          <strong>Northwind Capital Intelligence</strong>
+          <span>Web3 Capital Intelligence</span>
+        </div>
+      </a>
+
+      <nav class="nav">
+        <a href="#focus">Focus</a>
+        <a href="#research">Research</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="heroBg"></div>
+
+      <div class="heroInner">
+        <div class="heroContent">
+          <div class="eyebrow">Early Stage Web3 Intelligence</div>
+
+          <h1>Web3 Capital Intelligence &amp; Tokenomics Advisory</h1>
+
+          <p class="heroText">
+            Providing capital intelligence across decentralized finance and base layer protocols.
+          </p>
+
+          <div class="heroActions">
+            <a class="btn btnPrimary" href="mailto:alpha@northwindintel.com">Contact</a>
+            <a class="btn btnGhost" href="#research">View research areas</a>
+          </div>
+
+          <div class="socialRow">
+            <a class="socialPill" href="https://x.com/northwind_eth" target="_blank" rel="noopener noreferrer">X</a>
+            <a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="focus">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Focus</h2>
+          <p>
+            A research process built around where capital, incentives and network design converge to create asymmetric opportunity.
+          </p>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Tokenomics</h3>
+            <p>Supply structure, emissions, unlock schedules and incentive alignment across digital asset networks.</p>
+          </div>
+
+          <div class="card">
+            <h3>Onchain Intelligence</h3>
+            <p>Wallet behavior, liquidity migration, participation trends and capital flows across ecosystems.</p>
+          </div>
+
+          <div class="card">
+            <h3>Protocol Architecture</h3>
+            <p>Validator incentives, governance structure and long term network durability.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Research Areas</h2>
+          <p>
+            Coverage across the parts of Web3 that matter most for serious research and capital allocation.
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="pillWrap">
+            <div class="pill">Base layer protocols</div>
+            <div class="pill">Decentralized finance</div>
+            <div class="pill">Validator economics</div>
+            <div class="pill">Staking systems</div>
+            <div class="pill">Protocol design</div>
+            <div class="pill">Capital flows</div>
+            <div class="pill">Network incentives</div>
+            <div class="pill">Early stage intelligence</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap contactBox">
+        <div class="card">
+          <h2 style="margin-bottom:12px;">Contact</h2>
+          <p class="smallText" style="margin-bottom:16px;">
+            For research inquiries or partnerships reach out directly.
+          </p>
+          <a class="mailLink" href="mailto:alpha@northwindintel.com">alpha@northwindintel.com</a>
+        </div>
+
+        <div class="card">
+          <h3>Socials</h3>
+          <p class="smallText" style="margin-bottom:16px;">
+            Follow Northwind Capital Intelligence.
+          </p>
+
+          <div class="socialRow">
+            <a class="socialPill" href="https://x.com/northwind_eth" target="_blank" rel="noopener noreferrer">Follow on X</a>
+            <a class="socialPill" href="https://www.linkedin.com/company/northwind-capital-intelligence/" target="_blank" rel="noopener noreferrer">View LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footerInner">
+      <span>© 2026 Northwind Capital Intelligence</span>
+      <span>northwindintel.com</span>
+    </div>
+  </footer>
 
 </body>
 </html>
